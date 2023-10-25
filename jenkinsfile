@@ -41,7 +41,8 @@ environment {
             steps{ 
                 sh "docker run --name php_container -d -p 81:80 --network my_network --rm php_image"
             }
-        stage('Connect to MySQL') {
+        }
+        stage ('Connect to MySQL') {
             steps {
                 script {
                     def sql = new groovy.sql.Sql(java.sql.DriverManager.getConnection(

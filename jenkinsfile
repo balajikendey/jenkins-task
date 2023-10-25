@@ -45,19 +45,20 @@ environment {
         stage ('Connect to MySQL') {
             steps {
                 script {
-                    def sql = new groovy.sql.Sql(java.sql.DriverManager.getConnection(
-                        "jdbc:mysql://${MYSQL_HOST}/${MYSQL_DATABASE}",
-                        "${MYSQL_USER}",
-                        "${MYSQL_PASSWORD}")
-                    )
-
-                    def result = sql.rows('SELECT * FROM your_table')
-
-                    result.each {
-                        echo "ID: ${it.id}, Name: ${it.name}"
+                    <?php
+                    $servername = "localhost";
+                    $username =  'sql_container';
+                    $password =  'devilman';
+                    
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password);
+                    
+                    // Check connection
+                    if (!$conn) {
+                      die("Connection failed: " . mysqli_connect_error());
                     }
-
-                    sql.close()
+                    echo "Connected successfully";
+                    ?>
                 }
             }
         }

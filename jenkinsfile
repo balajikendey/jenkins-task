@@ -6,7 +6,7 @@ pipeline{
             steps{
                 sh "docker rm -f sql_container || true"
                 sh "docker rmi mysql_image || true"
-                sh "docker build -t mysql_image ./my_webapp_mysql"
+                sh "docker build -t mysql_image ./mywebappmysql"
             }
         }
 
@@ -14,7 +14,7 @@ pipeline{
             steps{
                 sh "docker rm -f php_container || true"
                 sh "docker rmi php_image || true"
-                sh "docker build -t php_image --no-cache ./my_webapp"
+                sh "docker build -t php_image --no-cache ./mywebapp"
             }
         }
 

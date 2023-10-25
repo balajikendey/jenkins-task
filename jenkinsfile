@@ -45,7 +45,7 @@ environment {
         stage('Call PHP Script') {
             steps {
                 script {
-                    sh 'php phpconnect.php'
+                    sh 'php /path/to/phpconnect.php'
                 }
             }
         }

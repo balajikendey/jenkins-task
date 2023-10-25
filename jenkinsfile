@@ -42,23 +42,10 @@ environment {
                 sh "docker run --name php_container -d -p 81:80 --network my_network --rm php_image"
             }
         }
-        stage ('Connect to MySQL') {
+        stage('Call PHP Script') {
             steps {
                 script {
-                    <?php
-                    $servername = "localhost";
-                    $username =  'sql_container';
-                    $password =  'devilman';
-                    
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password);
-                    
-                    // Check connection
-                    if (!$conn) {
-                      die("Connection failed: " . mysqli_connect_error());
-                    }
-                    echo "Connected successfully";
-                    ?>
+                    sh 'php phpconnect.php'
                 }
             }
         }

@@ -2,7 +2,7 @@ pipeline{
     agent any
 
 environment {
-        MYSQL_HOST = '98.70.33.57'
+        MYSQL_HOST = 'localhost'
         MYSQL_USER = 'sql_container'
         MYSQL_PASSWORD = 'devilman'
         MYSQL_DATABASE = 'sql_container'

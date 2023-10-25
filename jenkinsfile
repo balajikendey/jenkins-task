@@ -1,13 +1,6 @@
 pipeline{
     agent any
 
-environment {
-        MYSQL_HOST = 'localhost'
-        MYSQL_USER = 'sql_container'
-        MYSQL_PASSWORD = 'devilman'
-        MYSQL_DATABASE = 'sql_container'
-    }
-
     stages{
         stage ('build sql image') {
             steps{
@@ -40,13 +33,6 @@ environment {
         stage ('run php container') {
             steps{ 
                 sh "docker run --name php_container -d -p 81:80 --network my_network --rm php_image"
-            }
-        }
-        stage('Call PHP Script') {
-            steps {
-                script {
-                    sh 'php /path/to/phpconnect.php'
-                }
             }
         }
         }

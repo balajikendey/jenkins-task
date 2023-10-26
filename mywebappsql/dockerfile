@@ -2,5 +2,5 @@ FROM mysql
 
 COPY ./init.sql /docker-entrypoint-initdb.d
 
-ENV DB_PASSWORD=devilman
+ENV DB_PASSWORD=kinddevil
 EXPOSE 3306

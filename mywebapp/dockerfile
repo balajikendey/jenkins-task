@@ -1,5 +1,5 @@
 FROM php:7.4-apache
-RUN apt-get update && apt-get install -y mysql-client && rm -rf /var/lib/apt
+RUN apt-get update && apt-get install -y mysql-client
 RUN apt-get update
 RUN apt-get install -y wget vim git zip unzip zlib1g-dev libzip-dev libpng-dev
 RUN docker-php-ext-install -j$(nproc) mysqli pdo_mysql gd zip pcntl exif

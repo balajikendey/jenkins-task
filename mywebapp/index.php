@@ -4,7 +4,7 @@
   </head>
   <body>
     <?php
-      $conn = new mysqli('sql_container', 'root', 'kinddevil', 'details');
+      $conn = new mysqli('sql_container', 'root', $DB_PASSWORD, 'details');
       if($conn->connect_error){
         echo "\nError: Unable to connect: " . $conn->connect_error;
       }
